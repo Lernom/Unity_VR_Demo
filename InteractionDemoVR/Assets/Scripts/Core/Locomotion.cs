@@ -22,12 +22,15 @@ namespace InteractionDemo.Core
 
         private bool[] _locomotionReady = new bool[] { false, false };
 
+        private Rigidbody _rigidbody;
+
         void Start()
         {
             LeftController.OnGripDown += LeftController_OnGripDown;
             LeftController.OnGripUp += LeftController_OnGripUp;
             RightController.OnGripDown += RightController_OnGripDown;
             RightController.OnGripUp += RightController_OnGripUp;
+            _rigidbody = Rig.GetComponent<Rigidbody>();
         }
 
         private void RightController_OnGripUp(TrackedController sender, bool Value)
@@ -68,8 +71,10 @@ namespace InteractionDemo.Core
 
                 var direction = new Vector3(Camera.transform.forward.x, 0, Camera.transform.forward.z);
 
-
-                Rig.GetComponent<Rigidbody>().velocity = direction * Mathf.Min(MaxVelocity, velocity * SpeedMultiplier); 
+                if (_rigidbody.velocity.sqrMagnitude < MaxVelocity)
+                {
+                    _rigidbody.velocity += (direction * Mathf.Min(MaxVelocity, velocity * SpeedMultiplier));
+                }
 
             }
             _leftControllerPosition = LeftController.transform.localPosition;

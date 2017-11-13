@@ -235,13 +235,16 @@
     <Compile Include="Assets\Scripts\Interaction\GrabbableObject.cs" />
     <Compile Include="Assets\Scripts\Interaction\Grabber.cs" />
     <Compile Include="Assets\Scripts\Interaction\ISwitchable.cs" />
+    <Compile Include="Assets\Scripts\Interaction\Lever.cs" />
     <Compile Include="Assets\Scripts\Interaction\MaterialSwitcher.cs" />
-    <Compile Include="Assets\Scripts\Interaction\Pusher.cs" />
     <Compile Include="Assets\Scripts\Interaction\RubberBandObject.cs" />
     <Compile Include="Assets\Scripts\Interaction\Scanner.cs" />
     <Compile Include="Assets\Scripts\Interaction\Switch.cs" />
     <Compile Include="Assets\Scripts\Interaction\Switcher.cs" />
     <Compile Include="Assets\Scripts\Strings.cs" />
+    <Compile Include="Assets\Scripts\Utility\Pusher.cs" />
+    <Compile Include="Assets\Scripts\Utility\Scaler.cs" />
+    <Compile Include="Assets\Scripts\Utility\TestingLogger.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_GazeTracker.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_LaserPointer.cs" />
     <Compile Include="Assets\SteamVR\Extras\SteamVR_Teleporter.cs" />

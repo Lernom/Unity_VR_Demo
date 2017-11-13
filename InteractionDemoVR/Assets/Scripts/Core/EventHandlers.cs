@@ -8,4 +8,7 @@ namespace InteractionDemo.Core
 
     [System.Serializable]
     public class SwitcherEvent : UnityEvent<bool> { }
+
+    [System.Serializable]
+    public class LeverEvent : UnityEvent<float> { }
 }
