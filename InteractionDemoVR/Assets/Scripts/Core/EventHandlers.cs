@@ -1,4 +1,5 @@
-﻿using UnityEngine.Events;
+﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace InteractionDemo.Core
 {
@@ -11,4 +12,7 @@ namespace InteractionDemo.Core
 
     [System.Serializable]
     public class LeverEvent : UnityEvent<float> { }
+    
+    [System.Serializable]
+    public class CollisionEvent:UnityEvent<Collision> { }   
 }

@@ -18,6 +18,11 @@ namespace InteractionDemo.Core
         
         public event ButtonEventHandler OnGripUp;
 
+        public HandStateController HandController;
+
+        [SerializeField]
+        private HandVisualiser HandVisualiser;
+
         public SteamVR_Controller.Device Controller
         {
             get
@@ -34,9 +39,35 @@ namespace InteractionDemo.Core
             }
         }
 
+        public void RestrictHandMovement(Transform t)
+        {
+            HandVisualiser.SetTrackedTransform(t);
+        }
+
+        public void FreeHandMovement()
+        {
+            HandVisualiser.SetTrackedTransform(transform);
+            HandVisualiser.ResetPositionAndRotation();
+        }
+
+        public void Cleanup()
+        {
+            var modules = GetComponentsInChildren<IHandModule>();
+            for (int i = 0; i < modules.Length; i++)
+            {
+                modules[i].Cleanup();
+            }
+        }
+
         void Start()
         {
             TrackedObject = GetComponent<SteamVR_TrackedObject>();
+            FreeHandMovement();
+            var modules = GetComponentsInChildren<IHandModule>();
+            for (int i = 0; i < modules.Length; i++)
+            {
+                modules[i].Setup(this);
+            }
         }
 
         void Update()
@@ -83,6 +114,8 @@ namespace InteractionDemo.Core
             }
         }
 
+
+     
        
     }
 }

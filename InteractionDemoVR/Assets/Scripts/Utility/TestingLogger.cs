@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using InteractionDemo.Interaction;
+using UnityEngine;
 
-namespace InteractionDemo.Interaction
+namespace InteractionDemo.Utility
 {
     class TestingLogger : MonoBehaviour
     {

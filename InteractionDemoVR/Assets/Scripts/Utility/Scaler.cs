@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace InteractionDemo.Interaction
+namespace InteractionDemo.Utility
 {
     class Scaler : MonoBehaviour
     {

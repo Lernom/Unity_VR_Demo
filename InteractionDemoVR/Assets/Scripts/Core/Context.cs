@@ -10,28 +10,24 @@ namespace InteractionDemo.Core
     {
         protected Context() {}
 
-        private Valve.VR.EVRButtonId Trigger = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
-
-        public event EventHandler OnTriggerPress;
-
-        public TrackedController LeftController;
-
-        public TrackedController RightController;
+        public TrackedController[] Controllers;
 
         void Start()
         {
             
-        }
-        
+        }       
 
         void Update()
         {
 
         }
 
-        private void Context_OnTriggerPress(object sender, EventArgs e)
+        public void Cleanup()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < Controllers.Length; i++)
+            {
+                Controllers[i].Cleanup();
+            }
         }
     }
 }
